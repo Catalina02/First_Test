@@ -1,150 +1,42 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-{% load static %}
-<html>
-<!---
-    <style>
-        *{padding: 10; margin: 0; box-sizing: border-box;}
-        body {
-          font-size: 120%;
-        }
-        header {
-            background: url('https://www.hogarmania.com/archivos/201705/mascotas-perros-razas-caniche-XxXx80.jpg');
-            text-align: center;
-            width: 100%;
-            height: auto;
-            background-size: 100% 65%;
-            background-attachment: fixed;
-            overflow: hidden;
-	        border-radius: 0 0 85% 85% / 30%;
-        }
-        header .overlay{
-            width: 100%;
-            height: 100%;
-            padding: 50px;
-            color: #FFF;
-            text-shadow: 1px 1px 1px #333;
-            background-image: linear-gradient( 135deg, #9f05ff69 10%, #fd5e086b 100%);
-        }
-
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 80px;
-            margin-bottom: 30px;
-        }
-        h3, h2, p , .day{
-            font-family: 'Open Sans', sans-serif;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        .testo, form{
-            position: relative;
-           
-            text-align: center;
-        }
-        .fechas{
-            position: relative;
-            text-align: center;
-            font-size: 10px;
-        }
-        .POST, form{
-            position: relative;
-           
-            text-align: center;
-        }
-        .midia
-        {
-            font-family: 'Dancing Script', cursive;
-            font-size: 50px;
-            margin-bottom: 30px;
-        }
-        .caca{
-            font-family: 'Open Sans', sans-serif;
-            margin-bottom: 30px;
-            text-align: left;
-            position: relative;
-            left:400px
-        }
-        button {
-            text-align: center;
-            border: none;
-            outline: none;
-            padding: 10px 20px;
-            border-radius: 50px;
-            color: rgb(255, 255, 255);
-            background: rgb(215, 99, 250);
-            margin-bottom: 50px;
-            box-shadow: 0 3px 20px 0 #0000003b;
-        }
-        button:hover{
-            cursor: pointer;
-        }
-        footer{
-            font-size: 10px;
-            margin-bottom: 10px;
-        }
-    </style>
---->
-
-    <head>
-        <title>Ther RialPoodle</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="{% static 'blog.css' %}">
-    </head>
-	<body>
-        <header>
-            <div class="overlay">
-                <div class="page-header">
-                    <h1><a href="/">Django Girls Blog</a></h1>
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class='testo'>
+    <p>El caniche (en inglés, poodle) es una raza canina que hasta el siglo XV se consideró de uso exclusivo de los aristócratas y nobles. Fue un perro cobrador de aguas hasta el Renacimiento: recuperaban las presas ya cazadas que habían caído al agua, como patos y cisnes. Hoy en día se les encuentra frecuentemente en las exposiciones caninas de belleza. Existen cuatro variedades: grande, mediano, enano y toy.</p>
+    <p>Son unos perros alegres, juguetones y muy activos. No se distraen fácilmente, esto los hace muy receptivos a la hora de adiestrarlos (tanto en obediencia como en agility). Son perros metódicos, energéticos, excelentes con los niños aunque si no se les adiestra y socializa correctamente pueden llegar a ser destructivos. .</p>
+    <img class='image' src="https://img1.picmix.com/output/stamp/normal/4/7/2/9/1549274_d313f.gif" width="100" height="100" >
+</div>   
+    
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <p>publicado: {{ post.published_date }}</p>
+                    </div>
+                    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+                    <p>{{ post.text|linebreaksbr }}</p>
                 </div>
-                <h2>El perro feo mas feo</h2>
-                <h3>como todos los caniches</h3>
-            </div>
-        </header>
-        <div class='testo'>
-            <p>El caniche (en inglés, poodle) es una raza canina que hasta el siglo XV se consideró de uso exclusivo de los aristócratas y nobles. Fue un perro cobrador de aguas hasta el Renacimiento: recuperaban las presas ya cazadas que habían caído al agua, como patos y cisnes. Hoy en día se les encuentra frecuentemente en las exposiciones caninas de belleza. Existen cuatro variedades: grande, mediano, enano y toy.</p>
-            <p>Son unos perros alegres, juguetones y muy activos. No se distraen fácilmente, esto los hace muy receptivos a la hora de adiestrarlos (tanto en obediencia como en agility). Son perros metódicos, energéticos, excelentes con los niños aunque si no se les adiestra y socializa correctamente pueden llegar a ser destructivos. .</p>
-            <img class='image' src="https://img1.picmix.com/output/stamp/normal/4/7/2/9/1549274_d313f.gif" width="100" height="100" >
-        </div>   
-            
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                    {% for post in posts %}
-                        <div class="post">
-                            <div class="date">
-                                <p>publicado: {{ post.published_date }}</p>
-                            </div>
-                            <h2><a href="">{{ post.title }}</a></h2>
-                            <p>{{ post.text|linebreaksbr }}</p>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
+            {% endfor %}
         </div>
+    </div>
+</div>
 
-
-        <p class='pregunta'>¿Quien es el mejor Caniche?<p>
-        <form>
-            <!--https://www.w3schools.com/charsets/ref_emoji.asp-->
-            <button formaction="https://www.instagram.com/p/CC6-lrxlVcn/">Rogers <3</button>
-            <button formaction="https://www.instagram.com/p/B2k5eGkl4nZ/">Rogers >:C</button>
-            <button formaction="https://www.instagram.com/p/CMi_R3ZlIdu/">Coronel Sandia &#x1F349;</button>
-            <button formaction="https://www.instagram.com/p/CHlRPNtFhsb/">Perro Globo  &#x1F388;</button>
-            <button onclick="test()">El Rogers No &#x274C;</button>
-            
-        </form>
-        <script>
-            function test(){
-                alert('KE WEA CHUSHESUMARE QLO, \nel Rogers es el besto caniche \nuwu')
-            }
-        </script>
-        <footer>
-            <hr>
-            <p>The King: rogersrogeliobustos@gmail.com</p>
-            <p>Rogers's 2018 &copy; Copyright </p>
-          </footer>
-    </body>
-</html>
+<div class='mejor'>
+    <p class='pregunta'>¿Quien es el mejor Caniche?<p>
+    <form>
+        <!--https://www.w3schools.com/charsets/ref_emoji.asp-->
+        <button formaction="https://www.instagram.com/p/CC6-lrxlVcn/">Rogers <3</button>
+        <button formaction="https://www.instagram.com/p/B2k5eGkl4nZ/">Rogers >:C</button>
+        <button formaction="https://www.instagram.com/p/CMi_R3ZlIdu/">Coronel Sandia &#x1F349;</button>
+        <button formaction="https://www.instagram.com/p/CHlRPNtFhsb/">Perro Globo  &#x1F388;</button>
+        <button onclick="test()">El Rogers No &#x274C;</button>
+    
+    </form>
+</div>   
+<script>
+    function test(){
+        alert('KE WEA CHUSHESUMARE QLO, \nel Rogers es el besto caniche \nuwu')
+    }
+</script>
+{% endblock %}

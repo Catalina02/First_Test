@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+{% load static %}
+<html>
+    <head>
+        <title>Ther RialPoodle</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'blog.css' %}">
+    </head>
+	<body>
+        <header>
+            <div class="overlay">
+                <div class="page-header">
+                    <h1><a href="/">The Rogers Web Page</a></h1>
+                </div>
+                <h2>El perro feo mas feo</h2>
+                <h3>como todos los caniches</h3>
+            </div>
+        </header>
+        
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+
+
+        <footer>
+            <hr>
+            <p>The King: rogersrogeliobustos@gmail.com</p>
+            <p>Rogers's 2018 &copy; Copyright </p>
+          </footer>
+    </body>
+</html>

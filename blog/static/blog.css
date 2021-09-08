@@ -20,6 +20,7 @@ header .overlay{
     color: #FFF;
     text-shadow: 1px 1px 1px #333;
     background-image: linear-gradient( 135deg, #850ed069 20%, #fd5e086b 100%);
+    font-family: 'Lobster';
 }
 
 
@@ -35,18 +36,14 @@ h2 a {
     font-family: 'Lobster';
     font-size: 150% ;
 }
-.pregunta {
-    color: #a5179e;
-    font-family: 'Lobster';
-    font-size: 130% ;
-}
+
 
 .testo {
     margin-left: 40px;
     margin-top: 70px;
 }
 .image {
-    position: relative;
+    position:relative;
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
@@ -61,6 +58,7 @@ h2 a {
 
 .date {
     color: #828282;
+    margin-top: 30px;
 }
 
 .save {
@@ -87,16 +85,25 @@ h2 a {
 }
 
 
+.mejor{
+    text-align: center;
+}
 
+.pregunta {
+    color: #a5179e;
+    font-family: 'Lobster';
+    font-size: 130% ;
+    position: inherit;
+}
 button {
-    position: relative;
+    position: inherit;
     text-align: center;
     border: none;
     outline: none;
     padding: 10px 20px;
     border-radius: 50px;
     color: rgb(255, 255, 255);
-    background: rgb(215, 99, 250);
+    background: #a5179e;
     margin-bottom: 50px;
     box-shadow: 0 3px 20px 0 #0000003b;
 }
@@ -106,6 +113,7 @@ button:hover{
 footer{
     font-size: 10px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 
